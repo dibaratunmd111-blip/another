@@ -2,9 +2,7 @@ import flet as ft
 import mysql.connector
 from datetime import date
 
-# ==========================
 # MYSQL CONNECTION
-# ==========================
 
 db = mysql.connector.connect(
     host="localhost",
@@ -15,9 +13,7 @@ db = mysql.connector.connect(
 
 cursor = db.cursor()
 
-# ==========================
 # MAIN APP
-# ==========================
 
 def main(page: ft.Page):
 
@@ -28,9 +24,7 @@ def main(page: ft.Page):
     page.bgcolor = "#f4f6f9"
     page.scroll = "auto"
 
-    # ==========================
-    # INPUTS
-    # ==========================
+    # INPUS
 
     item_name = ft.TextField(
         label="Item Name",
@@ -82,9 +76,7 @@ def main(page: ft.Page):
 
     selected_id = {"id": None}
 
-    # ==========================
     # LOAD CATEGORIES
-    # ==========================
 
     def load_categories():
 
@@ -104,10 +96,8 @@ def main(page: ft.Page):
 
         page.update()
 
-    # ==========================
     # DASHBOARD
-    # ==========================
-
+    
     def update_dashboard():
 
         cursor.execute(
@@ -120,9 +110,7 @@ def main(page: ft.Page):
 
         page.update()
 
-    # ==========================
     # STATUS COLOR
-    # ==========================
 
     def status_color(status):
 
@@ -134,9 +122,7 @@ def main(page: ft.Page):
 
         return ft.Colors.RED
 
-    # ==========================
     # LOAD DATA
-    # ==========================
 
     def load_data(search=""):
 
@@ -215,9 +201,7 @@ def main(page: ft.Page):
         update_dashboard()
         page.update()
 
-    # ==========================
     # ADD ITEM
-    # ==========================
 
     def add_item(e):
 
@@ -249,9 +233,7 @@ def main(page: ft.Page):
 
         load_data()
 
-    # ==========================
     # EDIT
-    # ==========================
 
     def edit_record(row):
 
@@ -263,9 +245,7 @@ def main(page: ft.Page):
 
         page.update()
 
-    # ==========================
     # UPDATE
-    # ==========================
 
     def update_item(e):
 
@@ -294,9 +274,7 @@ def main(page: ft.Page):
 
         load_data()
 
-    # ==========================
     # DELETE
-    # ==========================
 
     def delete_item(item_id):
 
@@ -309,9 +287,7 @@ def main(page: ft.Page):
 
         load_data()
 
-    # ==========================
     # CLEAR
-    # ==========================
 
     def clear_fields():
 
@@ -323,16 +299,12 @@ def main(page: ft.Page):
 
         page.update()
 
-    # ==========================
     # SEARCH
-    # ==========================
 
     def search_item(e):
         load_data(search_box.value)
 
-    # ==========================
     # BUTTONS
-    # ==========================
 
     add_btn = ft.ElevatedButton(
         "Add",
@@ -355,9 +327,7 @@ def main(page: ft.Page):
         on_click=search_item
     )
 
-    # ==========================
     # UI
-    # ==========================
 
     page.add(
 
