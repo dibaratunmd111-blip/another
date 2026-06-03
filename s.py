@@ -1,9 +1,8 @@
 import flet as ft
 import mysql.connector
 
-# ==========================
 # MYSQL CONNECTION
-# ==========================
+
 db = mysql.connector.connect(
     host="localhost",
     user="root",
